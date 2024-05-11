@@ -6,7 +6,10 @@ export const usersApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
   endpoints: (builder) => ({
     getAllUsers: builder.query<UserType[], void>({ query: () => "/users" }),
+    getUserById: builder.query<UserType, number>({
+      query: (id) => `/users/${id}`,
+    }),
   }),
 });
 
-export const { useGetAllUsersQuery } = usersApi;
+export const { useGetAllUsersQuery, useGetUserByIdQuery } = usersApi;
