@@ -18,7 +18,6 @@ export default function EditPost({ post, onSubmit }: EditPostProps) {
     const form = new FormData(event.currentTarget as HTMLFormElement);
     const title = form.get("title") as string;
     const body = form.get("body") as string;
-    console.log(title, body);
     await editPost({ id: post.id, title, body, userId: post.userId });
     onSubmit();
   };

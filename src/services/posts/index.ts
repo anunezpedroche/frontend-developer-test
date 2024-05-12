@@ -4,7 +4,9 @@ import { CommentType } from "../../types/posts/comment-type";
 
 export const postsApi = createApi({
   reducerPath: "postsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://jsonplaceholder.typicode.com",
+  }),
   tagTypes: ["Post"],
   endpoints: (builder) => ({
     getAllPosts: builder.query<PostType[], void>({
