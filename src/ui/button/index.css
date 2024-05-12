@@ -1,0 +1,23 @@
+.custom-button {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  border-radius: 0.2em;
+  border: none;
+  width: 100%;
+}
+
+.custom-button:hover {
+  cursor: pointer;
+}
+
+.custom-button--primary {
+  color: var(--primaryColor);
+  background-color: var(--thirdColor);
+}
+
+.custom-button--secondary {
+  color: var(--thirdColor);
+  background-color: var(--primaryColor);
+  border: 1px solid var(--thirdColor);
+}

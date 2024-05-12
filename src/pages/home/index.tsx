@@ -3,6 +3,7 @@ import {
   useEditPostMutation,
   useGetAllPostsQuery,
 } from "../../services/posts";
+import Button from "../../ui/button";
 
 export default function HomePage() {
   const { data, error, isLoading } = useGetAllPostsQuery();
@@ -26,20 +27,21 @@ export default function HomePage() {
         data.map((post) => (
           <div key={post.id}>
             <p>{post.title}</p>
-            <button
+            <Button
               onClick={() => {
                 handleDeletePost(post.id);
               }}
             >
               Delete
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => {
                 handleEditPost(post);
               }}
+              variant="secondary"
             >
               Edit
-            </button>
+            </Button>
           </div>
         ))}
     </>

@@ -9,7 +9,10 @@ export const postsApi = createApi({
     getAllPosts: builder.query<PostType[], void>({
       query: () => "/posts",
       providesTags: (result = []) => [
-        ...result.map(({ id }) => ({ type: "Post", id: id })),
+        ...result.map(({ id }) => ({
+          type: "Post" as const,
+          id: id,
+        })),
       ],
     }),
     getPostById: builder.query<PostType, number>({
@@ -35,6 +38,7 @@ export const postsApi = createApi({
           })
         );
       },
+      //This line is commented out because we need to invalidate the cache in order to see the changes
       /*invalidatesTags: (_result, _error, post) => [
         { type: "Post", id: post.id },
       ],*/
@@ -48,6 +52,7 @@ export const postsApi = createApi({
           })
         );
       },
+      //This line is commented out because we need to invalidate the cache in order to see the changes
       //invalidatesTags: (_result, _error, id) => [{ type: "Post", id }],
     }),
   }),
