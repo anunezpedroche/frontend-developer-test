@@ -1,9 +1,9 @@
 # Goals
 
 - Create stores with react-redux, redux-toolkit and redux-rtk-query [✅]
-- Create app router
-- Create ui components
-- Create tests
+- Create app router [✅]
+- Create ui components [✅]
+- Create tests [✅]
 
 # Notes
 
