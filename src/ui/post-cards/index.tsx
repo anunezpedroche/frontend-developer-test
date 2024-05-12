@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 import { useDeletePostMutation } from "../../services/posts";
 import Button from "../button";
 import { useGetUserByIdQuery } from "../../services/users";
+import Modal from "../modal";
+import { useState } from "react";
 
 interface PostCardProps {
   post: PostType;
 }
 
 export default function PostCard({ post }: PostCardProps) {
+  const [showEditModal, setShowEditModal] = useState(false);
   const [deletePost] = useDeletePostMutation();
 
   const { data } = useGetUserByIdQuery(post.userId);
@@ -18,8 +21,17 @@ export default function PostCard({ post }: PostCardProps) {
     await deletePost(id);
   };
 
+  const handleShowEditModal = () => {
+    setShowEditModal(!showEditModal);
+  };
+
   return (
     <Link to={`/post/${post.id}`} className="post-card">
+      {showEditModal && (
+        <Modal onClose={handleShowEditModal} title="Edit post">
+          Prueba modal
+        </Modal>
+      )}
       <article className="post-card__container">
         <h2 className="post-card__title">{post.title}</h2>
         <p className="post-card__body">{post.body}</p>
@@ -31,7 +43,7 @@ export default function PostCard({ post }: PostCardProps) {
             onClick={(event) => {
               event.stopPropagation();
               event.preventDefault();
-              handleDeletePost(post.id);
+              handleShowEditModal();
             }}
           >
             Edit

@@ -23,6 +23,9 @@
 
 .custom-button--ghost {
   color: var(--thirdColor);
+  background-color: transparent;
+  width: fit-content;
+  height: fit-content;
 }
 
 .custom-button--ghost :hover {
