@@ -1,0 +1,21 @@
+.comments__title {
+  font: 1.5em;
+  color: var(--secondaryColor);
+}
+.comment__user-info {
+  font-size: 0.8rem;
+  color: var(--thirdColor);
+  margin: 0;
+}
+.comment__item {
+  margin: 1rem 0;
+}
+.comment__body {
+  margin: 0;
+  padding: 0;
+}
+.comments__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
