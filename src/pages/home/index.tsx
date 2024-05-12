@@ -6,6 +6,7 @@ import {
 } from "../../services/posts";
 import Button from "../../ui/button";
 import Layout from "../../ui/layout";
+import PostCard from "../../ui/post-cards";
 
 export default function HomePage() {
   const { data, error, isLoading } = useGetAllPostsQuery();
@@ -28,24 +29,25 @@ export default function HomePage() {
       <section className="home-section">
         {data &&
           data.map((post) => (
-            <div key={post.id}>
-              <p>{post.title}</p>
-              <Button
-                onClick={() => {
-                  handleDeletePost(post.id);
-                }}
-              >
-                Delete
-              </Button>
-              <Button
-                onClick={() => {
-                  handleEditPost(post);
-                }}
-                variant="secondary"
-              >
-                Edit
-              </Button>
-            </div>
+            <PostCard key={post.id} post={post} />
+            // <div key={post.id}>
+            //   <p>{post.title}</p>
+            //   <Button
+            //     onClick={() => {
+            //       handleDeletePost(post.id);
+            //     }}
+            //   >
+            //     Delete
+            //   </Button>
+            //   <Button
+            //     onClick={() => {
+            //       handleEditPost(post);
+            //     }}
+            //     variant="secondary"
+            //   >
+            //     Edit
+            //   </Button>
+            // </div>
           ))}
       </section>
     </Layout>

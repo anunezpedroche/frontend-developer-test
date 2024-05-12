@@ -1,12 +1,15 @@
 import { Provider } from "react-redux";
 import { store } from "./stores";
 import AppRouter from "./router";
+import { Suspense } from "react";
 
 function App() {
   return (
-    <Provider store={store}>
-      <AppRouter />
-    </Provider>
+    <Suspense fallback="Loading...">
+      <Provider store={store}>
+        <AppRouter />
+      </Provider>
+    </Suspense>
   );
 }
 

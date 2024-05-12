@@ -18,6 +18,13 @@
 
 .custom-button--secondary {
   color: var(--thirdColor);
-  background-color: var(--primaryColor);
   border: 1px solid var(--thirdColor);
+}
+
+.custom-button--ghost {
+  color: var(--thirdColor);
+}
+
+.custom-button--ghost :hover {
+  transform: scale(1.2);
 }

@@ -62,4 +62,5 @@ export const {
   useGetAllPostsQuery,
   useDeletePostMutation,
   useEditPostMutation,
+  useGetPostByIdQuery,
 } = postsApi;
