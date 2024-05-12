@@ -1,0 +1,21 @@
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background-color: var(--thirdColor);
+  width: 100%;
+}
+
+.content {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+@media (max-width: 768px) {
+  .content {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
