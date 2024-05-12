@@ -13,7 +13,7 @@
   grid-template-columns: repeat(12, 1fr);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .content {
     display: grid;
     grid-template-columns: repeat(8, 1fr);

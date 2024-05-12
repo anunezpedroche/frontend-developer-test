@@ -1,54 +1,14 @@
 import "./index.css";
-import {
-  useDeletePostMutation,
-  useEditPostMutation,
-  useGetAllPostsQuery,
-} from "../../services/posts";
-import Button from "../../ui/button";
+import { useGetAllPostsQuery } from "../../services/posts";
 import Layout from "../../ui/layout";
 import PostCard from "../../ui/post-cards";
 
 export default function HomePage() {
-  const { data, error, isLoading } = useGetAllPostsQuery();
-  const [deletePost] = useDeletePostMutation();
-  const [editPost] = useEditPostMutation();
-
-  const handleDeletePost = async (id: number) => {
-    await deletePost(id);
-  };
-
-  const handleEditPost = async (post) => {
-    await editPost({
-      ...post,
-      title: "Edited Title",
-    });
-  };
-
+  const { data } = useGetAllPostsQuery();
   return (
     <Layout>
       <section className="home-section">
-        {data &&
-          data.map((post) => (
-            <PostCard key={post.id} post={post} />
-            // <div key={post.id}>
-            //   <p>{post.title}</p>
-            //   <Button
-            //     onClick={() => {
-            //       handleDeletePost(post.id);
-            //     }}
-            //   >
-            //     Delete
-            //   </Button>
-            //   <Button
-            //     onClick={() => {
-            //       handleEditPost(post);
-            //     }}
-            //     variant="secondary"
-            //   >
-            //     Edit
-            //   </Button>
-            // </div>
-          ))}
+        {data && data.map((post) => <PostCard key={post.id} post={post} />)}
       </section>
     </Layout>
   );

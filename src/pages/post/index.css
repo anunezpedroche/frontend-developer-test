@@ -1,0 +1,10 @@
+.post__container {
+  grid-column-start: 2;
+  grid-column-end: 12;
+}
+
+.post__title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--fifthColor);
+}

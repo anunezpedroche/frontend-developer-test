@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { PostType } from "../../types/posts/post-type";
+import { CommentType } from "../../types/posts/comment-type";
 
 export const postsApi = createApi({
   reducerPath: "postsApi",
@@ -17,6 +18,9 @@ export const postsApi = createApi({
     }),
     getPostById: builder.query<PostType, number>({
       query: (id) => `/posts/${id}`,
+    }),
+    getCommentsByPostId: builder.query<CommentType[], number>({
+      query: (id) => `/posts/${id}/comments`,
     }),
     editPost: builder.mutation<PostType, PostType>({
       query: (post) => ({
@@ -63,4 +67,5 @@ export const {
   useDeletePostMutation,
   useEditPostMutation,
   useGetPostByIdQuery,
+  useGetCommentsByPostIdQuery,
 } = postsApi;
