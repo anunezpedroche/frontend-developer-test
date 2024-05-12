@@ -10,8 +10,20 @@ interface ModalProps {
 
 export default function Modal({ children, title, onClose }: ModalProps) {
   return ReactDOM.createPortal(
-    <div className="modal__background">
-      <div className="modal__container">
+    <div
+      className="modal__background"
+      onClick={(event) => {
+        event.stopPropagation();
+        event.preventDefault();
+        onClose();
+      }}
+    >
+      <div
+        className="modal__container"
+        onClick={(event) => {
+          event.stopPropagation();
+        }}
+      >
         <div className="modal__title">
           <h3 className="modal__title--text">{title}</h3>
           <Button

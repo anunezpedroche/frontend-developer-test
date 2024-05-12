@@ -6,6 +6,7 @@ import Button from "../button";
 import { useGetUserByIdQuery } from "../../services/users";
 import Modal from "../modal";
 import { useState } from "react";
+import EditPost from "./components/edit-post";
 
 interface PostCardProps {
   post: PostType;
@@ -29,7 +30,7 @@ export default function PostCard({ post }: PostCardProps) {
     <Link to={`/post/${post.id}`} className="post-card">
       {showEditModal && (
         <Modal onClose={handleShowEditModal} title="Edit post">
-          Prueba modal
+          <EditPost post={post} onSubmit={handleShowEditModal} />
         </Modal>
       )}
       <article className="post-card__container">
