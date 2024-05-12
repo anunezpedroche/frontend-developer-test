@@ -7,9 +7,6 @@ export default function Navigation() {
       <Link className="nav-bar__link" to={"/"}>
         Home
       </Link>
-      <Link to={"/about"}>About</Link>
-      <Link to={"/contact"}>Contact</Link>
-      <Link to={"/login"}>Login</Link>
     </nav>
   );
 }

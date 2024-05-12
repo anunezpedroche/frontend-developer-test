@@ -25,10 +25,14 @@ export default function EditPost({ post, onSubmit }: EditPostProps) {
 
   return (
     <form className="edit-form__container" onSubmit={handleEditPost}>
-      <label>Title</label>
-      <Input name="title" value={post.title} />
-      <label>Body</label>
-      <TextArea name="body" value={post.body} />
+      <div className="edit-form__field">
+        <label>Title</label>
+        <Input name="title" value={post.title} />
+      </div>
+      <div className="edit-form__field">
+        <label>Body</label>
+        <TextArea name="body" value={post.body} />
+      </div>
       <Button
         onClick={(event) => {
           event.stopPropagation();

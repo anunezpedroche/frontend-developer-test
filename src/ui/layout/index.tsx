@@ -12,7 +12,6 @@ export default function Layout({ children }: LayoutProps) {
         <Navigation />
       </header>
       <main className="content">{children}</main>
-      <footer>Prueba footer</footer>
     </>
   );
 }

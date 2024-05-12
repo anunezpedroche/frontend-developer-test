@@ -8,6 +8,7 @@ interface InputProps {
 export default function Input({ name, value }: InputProps) {
   return (
     <input
+      className="generic-input--primary"
       name={name}
       defaultValue={value}
       onClick={(event) => {
